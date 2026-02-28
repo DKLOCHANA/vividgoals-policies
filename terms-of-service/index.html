@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VividGoals — Terms of Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --border: #1e1e2e;
+    --accent: #7c6af7;
+    --accent2: #f97aaf;
+    --text: #e8e8f0;
+    --muted: #6b6b85;
+    --heading: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 15px;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(124,106,247,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--heading);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+
+  .nav-tabs { display: flex; gap: 4px; }
+
+  .tab-btn {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .tab-btn:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  .tab-btn.active {
+    color: var(--accent);
+    background: rgba(124,106,247,0.12);
+  }
+
+  .hero {
+    position: relative;
+    z-index: 1;
+    padding: 72px 2rem 48px;
+    max-width: 780px;
+    margin: 0 auto;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(124,106,247,0.1);
+    border: 1px solid rgba(124,106,247,0.25);
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--heading);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .hero-meta {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-meta::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--muted);
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem 80px;
+    animation: fadeUp 0.5s ease 0.1s both;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 48px 0;
+  }
+
+  .section { margin-bottom: 48px; }
+
+  .section-number {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--heading);
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section p { color: var(--text); margin-bottom: 12px; }
+
+  .section ul { list-style: none; margin: 12px 0; padding: 0; }
+
+  .section ul li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    color: var(--text);
+  }
+  .section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.7;
+  }
+
+  .highlight-box {
+    background: rgba(124,106,247,0.07);
+    border: 1px solid rgba(124,106,247,0.2);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+  .highlight-box p { margin: 0; font-size: 14px; color: rgba(232,232,240,0.85); }
+
+  a.email-link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(124,106,247,0.35);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  a.email-link:hover { color: var(--accent2); border-color: var(--accent2); }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 28px 2rem;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  footer strong { color: var(--text); font-weight: 500; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 48px 1.25rem 32px; }
+    .content { padding: 0 1.25rem 60px; }
+    nav { padding: 0 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../privacy-policy/" class="logo">Vivid<span>Goals</span></a>
+  <div class="nav-tabs">
+    <a href="../privacy-policy/" class="tab-btn">Privacy Policy</a>
+    <a href="../terms-of-service/" class="tab-btn active">Terms of Service</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Legal</div>
+  <h1>Terms of Service</h1>
+  <p class="hero-meta">Last updated: February 14, 2026</p>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-number">Section 1</div>
+    <h2>Acceptance of Terms</h2>
+    <p>By accessing or using VividGoals ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 2</div>
+    <h2>Description of Service</h2>
+    <p>VividGoals is an AI-powered personalized goal-achievement application that helps you accomplish your life goals by breaking them down into clear, manageable daily tasks. The app provides smart organization, reminders, motivation, and ongoing support to keep you focused, consistent, and moving forward.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 3</div>
+    <h2>User Accounts</h2>
+    <p>To use certain features of the App, you must create an account. You agree to:</p>
+    <ul>
+      <li>Provide accurate and complete information during registration</li>
+      <li>Maintain the security of your account credentials</li>
+      <li>Notify us immediately of any unauthorized access to your account</li>
+      <li>Accept responsibility for all activities that occur under your account</li>
+    </ul>
+    <p>We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 4</div>
+    <h2>Acceptable Use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the App for any unlawful purpose</li>
+      <li>Attempt to gain unauthorized access to the App or its systems</li>
+      <li>Interfere with or disrupt the App's functionality</li>
+      <li>Reverse engineer, decompile, or disassemble any part of the App</li>
+      <li>Upload malicious content or code</li>
+      <li>Use the App to harass, abuse, or harm others</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 5</div>
+    <h2>Subscriptions and Payments</h2>
+    <p>Some features of the App may require a paid subscription. Subscriptions are processed through the Apple App Store or Google Play Store.</p>
+    <ul>
+      <li>Subscription fees are billed in advance on a recurring basis</li>
+      <li>You may cancel your subscription at any time through your app store settings</li>
+      <li>Refunds are subject to the policies of the respective app store</li>
+      <li>We reserve the right to modify subscription pricing with reasonable notice</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 6</div>
+    <h2>Intellectual Property</h2>
+    <p>All content, features, and functionality of the App — including but not limited to text, graphics, logos, icons, and software — are the exclusive property of Savitar Global and are protected by intellectual property laws.</p>
+    <div class="highlight-box">
+      <p>You are granted a limited, non-exclusive, non-transferable license to use the App for personal, non-commercial purposes.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 7</div>
+    <h2>User Content</h2>
+    <p>You retain ownership of any data or content you submit through the App. By using the App, you grant us a limited license to store, process, and display your content solely for the purpose of providing the service.</p>
+    <p>We do not claim ownership of your financial data, messages, or personal information.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 8</div>
+    <h2>Disclaimer of Warranties</h2>
+    <p>The App is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied, including but not limited to:</p>
+    <ul>
+      <li>Merchantability or fitness for a particular purpose</li>
+      <li>Uninterrupted or error-free operation</li>
+      <li>Accuracy or reliability of any information provided</li>
+    </ul>
+    <p>VividGoals is a goal-tracking tool and does not provide professional advice of any kind. You are solely responsible for your decisions.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 9</div>
+    <h2>Limitation of Liability</h2>
+    <p>To the fullest extent permitted by law, Savitar Global shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, profits, or goodwill, arising from your use of the App.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 10</div>
+    <h2>Termination</h2>
+    <p>We may terminate or suspend your access to the App at any time, without prior notice, for conduct that we believe violates these Terms or is harmful to other users, us, or third parties.</p>
+    <p>Upon termination, your right to use the App will immediately cease. You may request deletion of your data by contacting us.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 11</div>
+    <h2>Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Savitar Global operates, without regard to conflict of law principles.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 12</div>
+    <h2>Changes to Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. Changes will be posted within the App or on our website. Your continued use of the App after changes are posted constitutes your acceptance of the revised Terms.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="section-number">Section 13</div>
+    <h2>Contact Us</h2>
+    <p>If you have any questions about these Terms of Service, contact us at:</p>
+    <ul>
+      <li>Email: <a class="email-link" href="mailto:contact@savitar.global">contact@savitar.global</a></li>
+      <li>Company: Savitar Global</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 <strong>Savitar Global</strong> · All rights reserved · <a class="email-link" href="mailto:contact@savitar.global">contact@savitar.global</a></p>
+</footer>
+
+</body>
+</html>
