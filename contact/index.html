@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VividGoals — Contact Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --border: #1e1e2e;
+    --accent: #7c6af7;
+    --accent2: #f97aaf;
+    --text: #e8e8f0;
+    --muted: #6b6b85;
+    --heading: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    font-size: 15px;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(124,106,247,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--heading);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+
+  .nav-tabs { display: flex; gap: 4px; }
+
+  .tab-btn {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .tab-btn:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+  .tab-btn.active {
+    color: var(--accent);
+    background: rgba(124,106,247,0.12);
+  }
+
+  .hero {
+    position: relative;
+    z-index: 1;
+    padding: 72px 2rem 48px;
+    max-width: 780px;
+    margin: 0 auto;
+    animation: fadeUp 0.4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(124,106,247,0.1);
+    border: 1px solid rgba(124,106,247,0.25);
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: var(--heading);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 460px;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem 80px;
+    animation: fadeUp 0.5s ease 0.1s both;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 48px 0;
+  }
+
+  /* Contact grid */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--heading);
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-info p {
+    color: var(--text);
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+
+  .info-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .info-value {
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  a.email-link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(124,106,247,0.35);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  a.email-link:hover { color: var(--accent2); border-color: var(--accent2); }
+
+  /* Form */
+  .form-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 36px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .form-group:last-of-type { margin-bottom: 0; }
+
+  label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  input, select, textarea {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+  }
+  input::placeholder, textarea::placeholder { color: var(--muted); }
+  input:focus, select:focus, textarea:focus {
+    border-color: rgba(124,106,247,0.5);
+    background: rgba(124,106,247,0.04);
+  }
+
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6b85' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+  select option { background: #12121a; color: var(--text); }
+
+  textarea { resize: vertical; min-height: 130px; }
+
+  .submit-btn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 13px 24px;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+    position: relative;
+  }
+  .submit-btn:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+  .submit-btn:active:not(:disabled) { transform: translateY(0); }
+  .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+  .btn-text, .btn-loading { display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .btn-loading { display: none; }
+
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Success / error states */
+  .form-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .success-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(124,106,247,0.12);
+    border: 1px solid rgba(124,106,247,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .success-icon svg { stroke: var(--accent); }
+
+  .form-success h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--heading);
+  }
+  .form-success p { font-size: 14px; color: var(--muted); max-width: 300px; }
+
+  .alert {
+    display: none;
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+  }
+  .alert-error {
+    background: rgba(249,122,175,0.08);
+    border: 1px solid rgba(249,122,175,0.25);
+    color: var(--accent2);
+  }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--border);
+    padding: 28px 2rem;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  footer strong { color: var(--text); font-weight: 500; }
+
+  @media (max-width: 720px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .hero { padding: 48px 1.25rem 32px; }
+    .content { padding: 0 1.25rem 60px; }
+    nav { padding: 0 1.25rem; }
+    .form-card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../privacy-policy/" class="logo">Vivid<span>Goals</span></a>
+  <div class="nav-tabs">
+    <a href="../privacy-policy/" class="tab-btn">Privacy Policy</a>
+    <a href="../terms-of-service/" class="tab-btn">Terms of Service</a>
+    <a href="../contact/" class="tab-btn active">Contact</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-label">Get in Touch</div>
+  <h1>Contact Us</h1>
+  <p class="hero-sub">Have a question, feedback, or need support? We'd love to hear from you.</p>
+</div>
+
+<div class="content">
+
+  <div class="contact-grid">
+
+    <!-- Left: info -->
+    <div class="contact-info">
+      <h2>We're here to help</h2>
+      <p>Whether it's a technical issue, a question about your account, or general feedback — reach out and we'll get back to you as soon as possible.</p>
+
+      <div class="info-item">
+        <span class="info-label">Email</span>
+        <span class="info-value">
+          <a class="email-link" href="mailto:dklochanaedirisooriya@gmail.com">dklochanaedirisooriya@gmail.com</a>
+        </span>
+      </div>
+
+      <div class="info-item">
+        <span class="info-label">Company</span>
+        <span class="info-value">Savitar Global</span>
+      </div>
+
+      <div class="info-item">
+        <span class="info-label">Response time</span>
+        <span class="info-value">Within 1–2 business days</span>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="form-card">
+
+      <!-- Success state -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3>Message sent!</h3>
+        <p>Thanks for reaching out. We'll get back to you within 1–2 business days.</p>
+      </div>
+
+      <!-- Form -->
+      <form id="contactForm" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>Select a topic…</option>
+            <option value="Account &amp; Login">Account &amp; Login</option>
+            <option value="Subscription &amp; Billing">Subscription &amp; Billing</option>
+            <option value="Bug Report">Bug Report</option>
+            <option value="Feature Request">Feature Request</option>
+            <option value="Privacy &amp; Data">Privacy &amp; Data</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Describe your question or issue…" required></textarea>
+        </div>
+
+        <!-- hidden Formspree target -->
+        <input type="hidden" name="_replyto" id="replyto">
+
+        <div class="alert alert-error" id="formError">Something went wrong. Please try again or email us directly.</div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span class="btn-text">Send Message</span>
+          <span class="btn-loading"><span class="spinner"></span> Sending…</span>
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="text-align:center; padding-bottom: 8px;">
+    <p style="font-size:13px; color:var(--muted)">
+      You can also reach us directly at
+      <a class="email-link" href="mailto:dklochanaedirisooriya@gmail.com">dklochanaedirisooriya@gmail.com</a>
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 <strong>Savitar Global</strong> · All rights reserved · <a class="email-link" href="mailto:dklochanaedirisooriya@gmail.com">dklochanaedirisooriya@gmail.com</a></p>
+</footer>
+
+<script>
+  // ── Formspree endpoint ──────────────────────────────────────────────────────
+  // 1. Go to https://formspree.io and sign in with dklochanaedirisooriya@gmail.com
+  // 2. Create a new form → copy the form ID (looks like "xpwzabcd")
+  // 3. Replace YOUR_FORM_ID below with that ID
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/meerazev";
+  // ───────────────────────────────────────────────────────────────────────────
+
+  const form      = document.getElementById("contactForm");
+  const btn       = document.getElementById("submitBtn");
+  const btnText   = btn.querySelector(".btn-text");
+  const btnLoad   = btn.querySelector(".btn-loading");
+  const success   = document.getElementById("formSuccess");
+  const errorBox  = document.getElementById("formError");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    errorBox.style.display = "none";
+
+    // Basic validation
+    if (!form.name.value.trim() || !form.email.value.trim() ||
+        !form.subject.value || !form.message.value.trim()) {
+      errorBox.textContent = "Please fill in all fields before submitting.";
+      errorBox.style.display = "block";
+      return;
+    }
+
+    // Loading state
+    btn.disabled = true;
+    btnText.style.display = "none";
+    btnLoad.style.display = "flex";
+
+    try {
+      const data = new FormData(form);
+      data.set("_replyto", form.email.value);
+
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" }
+      });
+
+      if (res.ok) {
+        form.style.display = "none";
+        success.style.display = "flex";
+      } else {
+        throw new Error("server error");
+      }
+    } catch {
+      errorBox.textContent = "Something went wrong. Please try again or email us directly.";
+      errorBox.style.display = "block";
+      btn.disabled = false;
+      btnText.style.display = "flex";
+      btnLoad.style.display = "none";
+    }
+  });
+</script>
+
+</body>
+</html>
